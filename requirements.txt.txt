@@ -1,0 +1,10 @@
+gradio
+transformers
+torch
+langchain-huggingface
+langchain-community
+faiss-cpu
+rank_bm25
+langchain-classic
+pypdf
+sentence-transformers
