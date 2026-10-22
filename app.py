@@ -52,7 +52,10 @@ def load_rag_pipeline():
     # Load Model (CPU Optimized, 0.5B model for free tier)
     model_name = "Qwen/Qwen2.5-0.5B-Instruct"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=torch.float32, device_map="cpu")
+    
+    # --- THE FIX: Remove device_map and move the model to CPU manually ---
+    model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=torch.float32)
+    model = model.to("cpu") # Manually move the model to the CPU
     
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
