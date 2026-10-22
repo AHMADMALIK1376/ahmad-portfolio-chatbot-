@@ -1,6 +1,7 @@
 streamlit
 transformers
 torch
+torchvision
 accelerate
 langchain-huggingface
 langchain-community
